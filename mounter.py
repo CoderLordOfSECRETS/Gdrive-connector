@@ -9,10 +9,10 @@ from googleapiclient.discovery import build
 SCOPES = ['https://www.googleapis.com/auth/drive']
 
 # Path to the credentials JSON file you downloaded
-CREDS_FILE = 'path_to_your_credentials_file.json'
+CREDS_FILE = 'desktopcode.json'
 
 # Path where you want to mount your Google Drive
-MOUNT_PATH = '/path/to/mount'
+MOUNT_PATH = '/global'
 
 def get_credentials():
     creds = None
@@ -37,7 +37,7 @@ def main():
     service = build('drive', 'v3', credentials=creds)
 
     # Replace the folder ID with your Google Drive folder ID
-    folder_id = 'YOUR_FOLDER_ID'
+    folder_id = '1dtr1hjA8ui1NtBTk86vpuSStgC6POJr2'
 
     results = service.files().list(q=f"'{folder_id}' in parents", fields="files(name, id)").execute()
     items = results.get('files', [])
