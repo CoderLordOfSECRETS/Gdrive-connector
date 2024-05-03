@@ -1,4 +1,5 @@
 import os
+import subprocess
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from google.auth.exceptions import RefreshError
@@ -48,8 +49,18 @@ def main():
         for item in items:
             print(f"Found file: {item['name']} ({item['id']})")
 
-    # Now you can use FUSE to mount the Google Drive folder to your filesystem
-    # Example: fuse.py + google-drive-ocamlfuse (https://github.com/astrada/google-drive-ocamlfuse)
+    # Mount the Google Drive folder using FUSE
+    mount_command = f'google-drive-ocamlfuse -headless -label label_name -id client_id -secret client_secret'
+    subprocess.run(mount_command, shell=True)
+    
+    # Create the mount directory if it doesn't exist
+    os.makedirs(MOUNT_PATH, exist_ok=True)
+    
+    # Mount the Google Drive folder
+    mount_command = f'google-drive-ocamlfuse {MOUNT_PATH}'
+    subprocess.run(mount_command, shell=True)
+    
+    print("Google Drive folder mounted successfully.")
 
 if __name__ == '__main__':
     main()
