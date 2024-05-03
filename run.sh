@@ -8,7 +8,7 @@ cd your_repository
 pip3 install -r requirements.txt
 
 # Run the Python script
-python3 your_script.py
+python3 mounter.py
 
 # Check if the script ran successfully
 if [ $? -eq 0 ]; then
