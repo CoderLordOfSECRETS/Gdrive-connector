@@ -27,7 +27,7 @@ fi
 mkdir -p ~/GoogleDrive
 
 # Authenticate and mount specific folder
-folder_id="YOUR_FOLDER_ID_HERE"
+folder_id="1dtr1hjA8ui1NtBTk86vpuSStgC6POJr2"
 google-drive-ocamlfuse -id $folder_id ~/GoogleDrive
 
 echo "Google Drive folder mounted successfully at ~/GoogleDrive"
