@@ -12,6 +12,8 @@ check_dependencies() {
     done
 }
 
+sudo apt-get update
+
 # Check and install dependencies
 check_dependencies
 
