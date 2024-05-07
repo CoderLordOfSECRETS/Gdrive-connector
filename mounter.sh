@@ -15,6 +15,8 @@ check_dependencies() {
 # Check and install dependencies
 check_dependencies
 
+sudo apt-get install -y software-properties-common
+
 # Check if google-drive-ocamlfuse is installed
 if ! command -v google-drive-ocamlfuse &> /dev/null; then
     echo "google-drive-ocamlfuse is not installed. Installing..."
