@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Update system
-sudo apt-get full-upgrade -y
+sudo apt-get update && sudo apt upgrade -y
 
 # Function to check and install dependencies
 check_dependencies() {
